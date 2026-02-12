@@ -26,6 +26,19 @@ def leer_texto(mensaje: str) -> str:
         print("No puede estar vacío.")
 
 
+def leer_float(mensaje: str, minimo=None) -> float:
+    # Pide un número decimal y repite hasta que sea válido
+    while True:
+        try:
+            valor = float(input(mensaje).strip())
+            if minimo is not None and valor < minimo:
+                print(f"Debe ser un número >= {minimo}.")
+                continue
+            return valor
+        except ValueError:
+            print("Entrada inválida. Ingresa un número decimal (ej: 2.50).")
+
+
 def mostrar_menu() -> None:  # Muestra el menú de opciones al usuario
     print("\n" + "=" * 40)   # Imprime una línea de separación
     print("   SISTEMA DE GESTIÓN DE INVENTARIOS")
@@ -63,7 +76,9 @@ def main() -> None:
             except ValueError as e:
                 # Captura errores de validación lanzados por los setters de Producto
                 print(f"Error: {e}")
-   
+
+
+
 
 
 
