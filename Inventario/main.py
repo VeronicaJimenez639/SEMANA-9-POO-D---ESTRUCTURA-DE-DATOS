@@ -17,3 +17,15 @@ def leer_int(mensaje: str, minimo=None) -> int:
             print("Entrada inválida. Ingresa un número entero.")  # Si no es entero, vuelve a pedir
 
 
+def leer_texto(mensaje: str) -> str:
+    """Lee texto no vacío."""
+    while True:
+        texto = input(mensaje).strip()
+        if texto:
+            return texto
+        print("No puede estar vacío.")
+
+
+
+
+
