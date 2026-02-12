@@ -123,7 +123,21 @@ def main() -> None:
             except ValueError as e:
                 print(f"Error: {e}") # Captura errores de validación de cantidad negativa o precio inválido       
 
-    
+        elif opcion == 4:
+            # Opción 4: buscar productos por nombre (permite escribir solo una parte del nombre)
+            texto = leer_texto("Ingresa nombre o parte del nombre: ")
+
+            # El inventario devuelve una lista con los productos que coinciden con la búsqueda
+            encontrados = inventario.buscar_por_nombre(texto)
+
+            # Muestra el resultado de la búsqueda en consola
+            if not encontrados:
+                print("No se encontraron productos con ese nombre.")
+            else:
+                print(f"Se encontraron {len(encontrados)} producto(s):")
+                for producto in encontrados:
+                    print(" -", producto)  # Imprime el producto usando __str__
+
 
 
 
