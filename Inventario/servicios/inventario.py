@@ -43,3 +43,24 @@ class Inventario:
 
         self.productos.pop(indice)
         return True
+
+def actualizar_producto(self, producto_id, nueva_cantidad=None, nuevo_precio=None) -> bool:
+        """
+        Actualiza cantidad y/o precio de un producto por ID.
+        Retorna True si actualiza, False si no existe.
+        """
+        indice = self._buscar_indice_por_id(producto_id)
+        if indice == -1:
+            print("Error: No existe un producto con ese ID.")
+            return False
+
+        producto = self.productos[indice]  #
+
+        # Solo se actualiza lo que el usuario envía (cantidad, precio o ambos)
+        if nueva_cantidad is not None:
+            producto.set_cantidad(nueva_cantidad) 
+
+        if nuevo_precio is not None:
+            producto.set_precio(nuevo_precio)
+
+        return True
