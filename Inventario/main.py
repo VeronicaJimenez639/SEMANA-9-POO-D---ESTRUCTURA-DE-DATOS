@@ -158,7 +158,12 @@ def main() -> None:
 
         else:
             print("Opción inválida. Elige un número entre 1 y 6.")
-            
+
+
+if __name__ == "__main__":
+    main()  # Ejecuta la función principal para iniciar el programa
+    
+
 
 
 

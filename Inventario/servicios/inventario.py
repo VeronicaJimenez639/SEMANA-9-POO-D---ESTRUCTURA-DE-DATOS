@@ -41,7 +41,7 @@ class Inventario:
             print("Error: No existe un producto con ese ID.")
             return False
 
-        self.productos.pop(indice)
+        self.__productos.pop(indice)
         return True
 
     def actualizar_producto(self, producto_id, nueva_cantidad=None, nuevo_precio=None) -> bool:
@@ -54,7 +54,7 @@ class Inventario:
             print("Error: No existe un producto con ese ID.")
             return False
 
-        producto = self.productos[indice]  #
+        producto = self.__productos[indice]  
 
         # Solo se actualiza lo que el usuario envía (cantidad, precio o ambos)
         if nueva_cantidad is not None:
@@ -65,23 +65,21 @@ class Inventario:
 
         return 
     
-    def buscar_por_nombre(self, texto: str) -> list[Producto]:
+    def buscar_por_id(self, producto_id: int):
         """
-        Busca productos por nombre (coincidencia parcial, sin importar mayúsculas/minúsculas).
-        Retorna una lista con los productos encontrados.
+        Busca un producto por su ID.
+        Retorna el producto si existe, o None si no existe.
         """
-        texto = texto.strip().lower()      
-        encontrados: list[Producto] = []   
-
-        for producto in self.productos:
-            if texto in producto.get_nombre().lower():  
-                encontrados.append(producto)             
-        return encontrados
+        indice = self._buscar_indice_por_id(producto_id)
+        if indice == -1:
+            print("Error: No existe un producto con ese ID.")
+            return None
+        return self.__productos[indice]
     
-    def listar_productos(self) -> list[Producto]:
+    def listar_productos(self):
         """
         Retorna una copia de la lista de productos para mostrar en el main.
         """
-        return self.productos.copy() # Devuelve una copia para no modificar la lista original del inventario.
+        return self.__productos.copy() # Devuelve una copia para no modificar la lista original del inventario.
     
 
