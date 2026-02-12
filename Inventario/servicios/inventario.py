@@ -30,3 +30,16 @@ class Inventario:
             return False
         self.__productos.append(producto)
         return True
+    
+    def eliminar_producto(self, producto_id: int) -> bool:
+        """
+        Elimina un producto por ID.
+        Retorna True si se elimina, False si no existe.
+        """
+        indice = self._buscar_indice_por_id(producto_id)
+        if indice == -1:
+            print("Error: No existe un producto con ese ID.")
+            return False
+
+        self.productos.pop(indice)
+        return True
