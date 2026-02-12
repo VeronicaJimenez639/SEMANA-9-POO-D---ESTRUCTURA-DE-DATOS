@@ -30,7 +30,7 @@ class Producto:
     # Setters
     # Estos métodos permiten modificar los atributos privados del producto.
     # Se usan para validar los datos antes de asignarlos a los atributos.
-    
+
     def set_id(self, producto_id: int) -> None:
         # ID debe ser entero positivo (y será único en Inventario).
         if not isinstance(producto_id, int) or producto_id <= 0:
@@ -53,6 +53,16 @@ class Producto:
         # Precio debe ser número >= 0.
         if not isinstance(precio, (int, float)) or float(precio) < 0:
             raise ValueError("El precio debe ser un número mayor o igual a 0.")
-        self.__precio = float(precio)    
+        self.__precio = float(precio)
+
+
+    def __str__(self) -> str:
+        # Representación en cadena del producto, útil para mostrar información del producto.
+        return (
+            f"ID: {self.get_id()} | "             
+            f"Nombre: {self.get_nombre()} | "
+            f"Cantidad: {self.get_cantidad()} | "
+            f"Precio: ${self.get_precio():.2f}"
+        )   
 
 
