@@ -78,4 +78,10 @@ class Inventario:
                 encontrados.append(producto)             
         return encontrados
     
+    def listar_productos(self) -> list[Producto]:
+        """
+        Retorna una copia de la lista de productos para mostrar en el main.
+        """
+        return self.productos.copy() # Devuelve una copia para no modificar la lista original del inventario.
+    
 
