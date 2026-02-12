@@ -151,6 +151,16 @@ def main() -> None:
                     print(" -", producto)  
 
 
+        elif opcion == 6:
+            # Opción 6: salir del programa
+            print("Saliendo del programa.")
+            break  # Termina el bucle y finaliza el programa
+
+        else:
+            print("Opción inválida. Elige un número entre 1 y 6.")
+            
+
+
 
 
 
