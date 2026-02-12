@@ -11,4 +11,17 @@ class Producto:
         self.set_cantidad(cantidad)  
         self.set_precio(precio)    
 
+    # Getters
+    def get_id(self) -> int:
+        return self.__id
+
+    def get_nombre(self) -> str:
+        return self.__nombre
+
+    def get_cantidad(self) -> int:
+        return self.__cantidad
+
+    def get_precio(self) -> float:
+        return self.__precio
+
 
