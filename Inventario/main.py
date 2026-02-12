@@ -38,6 +38,34 @@ def mostrar_menu() -> None:  # Muestra el menú de opciones al usuario
     print("6) Salir")
 
 
+def main() -> None:
+    inventario = Inventario()  # Crea el inventario (inicia vacío)
+
+    while True:
+        # Bucle principal del programa: muestra el menú y ejecuta la opción elegida
+        mostrar_menu()
+        opcion = leer_int("Elige una opción (1-6): ", minimo=1)
+
+        if opcion == 1:
+            # Opción 1: registrar un nuevo producto (con validación de datos)
+            try:
+                producto_id = leer_int("ID (entero positivo): ", minimo=1)
+                nombre = leer_texto("Nombre: ")
+                cantidad = leer_int("Cantidad (>=0): ", minimo=0)
+                precio = leer_float("Precio (>=0): ", minimo=0.0)
+
+                # Crea el objeto Producto y lo envía al inventario para guardarlo
+                producto = Producto(producto_id, nombre, cantidad, precio)
+                agregado = inventario.agregar_producto(producto)
+
+                if agregado:
+                    print("Producto agregado correctamente.")
+            except ValueError as e:
+                # Captura errores de validación lanzados por los setters de Producto
+                print(f"Error: {e}")
+   
+
+
 
 
 
