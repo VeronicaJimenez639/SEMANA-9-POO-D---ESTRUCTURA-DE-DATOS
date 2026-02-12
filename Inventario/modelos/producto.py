@@ -26,5 +26,33 @@ class Producto:
 
     def get_precio(self) -> float:
         return self.__precio # Devuelve el precio del producto (flotante)
+    
+    # Setters
+    # Estos métodos permiten modificar los atributos privados del producto.
+    # Se usan para validar los datos antes de asignarlos a los atributos.
+    
+    def set_id(self, producto_id: int) -> None:
+        # ID debe ser entero positivo (y será único en Inventario).
+        if not isinstance(producto_id, int) or producto_id <= 0:
+            raise ValueError("El ID debe ser un entero positivo.")
+        self.__id = producto_id
+
+    def set_nombre(self, nombre: str) -> None:
+        # Nombre no debe ser vacío.
+        if not isinstance(nombre, str) or not nombre.strip():
+            raise ValueError("El nombre no puede estar vacío.")
+        self.__nombre = nombre.strip()
+
+    def set_cantidad(self, cantidad: int) -> None:
+        # Cantidad debe ser entero >= 0.
+        if not isinstance(cantidad, int) or cantidad < 0:
+            raise ValueError("La cantidad debe ser un entero mayor o igual a 0.")
+        self.__cantidad = cantidad
+
+    def set_precio(self, precio: float) -> None:  
+        # Precio debe ser número >= 0.
+        if not isinstance(precio, (int, float)) or float(precio) < 0:
+            raise ValueError("El precio debe ser un número mayor o igual a 0.")
+        self.__precio = float(precio)    
 
 
