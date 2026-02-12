@@ -44,7 +44,7 @@ class Inventario:
         self.productos.pop(indice)
         return True
 
-def actualizar_producto(self, producto_id, nueva_cantidad=None, nuevo_precio=None) -> bool:
+    def actualizar_producto(self, producto_id, nueva_cantidad=None, nuevo_precio=None) -> bool:
         """
         Actualiza cantidad y/o precio de un producto por ID.
         Retorna True si actualiza, False si no existe.
@@ -63,4 +63,19 @@ def actualizar_producto(self, producto_id, nueva_cantidad=None, nuevo_precio=Non
         if nuevo_precio is not None:
             producto.set_precio(nuevo_precio)
 
-        return True
+        return 
+    
+    def buscar_por_nombre(self, texto: str) -> list[Producto]:
+        """
+        Busca productos por nombre (coincidencia parcial, sin importar mayúsculas/minúsculas).
+        Retorna una lista con los productos encontrados.
+        """
+        texto = texto.strip().lower()      
+        encontrados: list[Producto] = []   
+
+        for producto in self.productos:
+            if texto in producto.get_nombre().lower():  
+                encontrados.append(producto)             
+        return encontrados
+    
+
