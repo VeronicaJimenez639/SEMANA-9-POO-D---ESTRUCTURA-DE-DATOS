@@ -77,6 +77,7 @@ def main() -> None:
                 # Captura errores de validación lanzados por los setters de Producto
                 print(f"Error: {e}")
 
+
         elif opcion == 2:
             # Opción 2: eliminar un producto usando su ID
             producto_id = leer_int("ID del producto a eliminar: ", minimo=1)
@@ -84,6 +85,43 @@ def main() -> None:
 
             if eliminado:
                 print("Producto eliminado correctamente.")
+
+         
+        elif opcion == 3:
+            # Opción 3: actualizar un producto existente usando su ID
+            producto_id = leer_int("ID del producto a actualizar: ", minimo=1)
+
+            #El usuario elige qué datos actualizar (cantidad, precio o ambos)
+            print("¿Qué deseas actualizar?")
+            print("1) Cantidad")
+            print("2) Precio")
+            print("3) Ambos")
+            sub_opcion = leer_int("Elige una opción (1-3): ", minimo=1)
+
+            try:
+                #Se inicializan en None para actualizar solo lo que el usuario elija
+                nueva_cantidad = None
+                nuevo_precio = None
+
+                if sub_opcion == 1:
+                    nueva_cantidad = leer_int("Nueva cantidad (>=0): ", minimo=0)
+                elif sub_opcion == 2:
+                    nuevo_precio = leer_float("Nuevo precio (>=0): ", minimo=0.0)
+                elif sub_opcion == 3:
+                    nueva_cantidad = leer_int("Nueva cantidad (>=0): ", minimo=0)
+                    nuevo_precio = leer_float("Nuevo precio (>=0): ", minimo=0.0)
+                else:
+                    print("Opción inválida.")
+                    continue # Regresa al menú principal
+
+                # Llama al inventario para aplicar el cambio (retorna True/False)
+                actualizado = inventario.actualizar_producto(producto_id, nueva_cantidad=nueva_cantidad, nuevo_precio=nuevo_precio)
+
+                if actualizado:
+                    print("Producto actualizado correctamente.")
+
+            except ValueError as e:
+                print(f"Error: {e}") # Captura errores de validación de cantidad negativa o precio inválido       
 
     
 
