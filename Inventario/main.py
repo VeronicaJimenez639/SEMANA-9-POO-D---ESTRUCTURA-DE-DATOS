@@ -139,6 +139,17 @@ def main() -> None:
                     print(" -", producto)  # Imprime el producto usando __str__
 
 
+        elif opcion == 5:
+            # Opción 5: listar todos los productos del inventario
+            productos = inventario.listar_productos()  # El inventario devuelve la lista de productos
+
+            if not productos:
+                print("El inventario está vacío.")
+            else:
+                print("Productos en inventario:")
+                for producto in productos:
+                    print(" -", producto)  
+
 
 
 
