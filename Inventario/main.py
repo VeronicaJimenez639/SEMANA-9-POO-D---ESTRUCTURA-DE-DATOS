@@ -26,6 +26,18 @@ def leer_texto(mensaje: str) -> str:
         print("No puede estar vacío.")
 
 
+def mostrar_menu() -> None:  # Muestra el menú de opciones al usuario
+    print("\n" + "=" * 40)   # Imprime una línea de separación
+    print("   SISTEMA DE GESTIÓN DE INVENTARIOS")
+    print("=" * 40)          
+    print("1) Añadir producto")
+    print("2) Eliminar producto")
+    print("3) Actualizar producto")
+    print("4) Buscar producto por nombre")
+    print("5) Listar inventario")
+    print("6) Salir")
+
+
 
 
 
