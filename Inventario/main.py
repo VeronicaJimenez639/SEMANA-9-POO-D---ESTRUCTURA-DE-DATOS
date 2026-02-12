@@ -46,7 +46,7 @@ def mostrar_menu() -> None:  # Muestra el menú de opciones al usuario
     print("1) Añadir producto")
     print("2) Eliminar producto")
     print("3) Actualizar producto")
-    print("4) Buscar producto por nombre")
+    print("4) Buscar producto por ID")
     print("5) Listar inventario")
     print("6) Salir")
 
@@ -154,6 +154,8 @@ def main() -> None:
             print("Opción inválida. Elige un número entre 1 y 6.")
 
 
+if __name__ == "__main__":
+    main()  # Ejecuta la función principal del programa
 
 
 
