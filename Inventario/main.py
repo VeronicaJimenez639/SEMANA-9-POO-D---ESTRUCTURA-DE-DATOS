@@ -77,6 +77,17 @@ def main() -> None:
                 # Captura errores de validación lanzados por los setters de Producto
                 print(f"Error: {e}")
 
+        elif opcion == 2:
+            # Opción 2: eliminar un producto usando su ID
+            producto_id = leer_int("ID del producto a eliminar: ", minimo=1)
+            eliminado = inventario.eliminar_producto(producto_id)  # El inventario intenta eliminarlo y devuelve True/False según exista o no
+
+            if eliminado:
+                print("Producto eliminado correctamente.")
+
+    
+
+
 
 
 
